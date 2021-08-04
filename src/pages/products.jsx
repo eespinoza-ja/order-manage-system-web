@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
+import { Button, Col, Row, Container } from "react-bootstrap/";
 import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus} from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +23,7 @@ const paginationOptions = {
 class Products extends Component {
     columns = [
         {
-            name: 'ID',
+            name: 'N°',
             selector: '_id',
             sortable: true
         },
@@ -47,13 +46,13 @@ class Products extends Component {
             selector: 'status',
         },
         {
-          name: "Action",
+          name: "Actions",
           button: true,
           cell: (row) => (
             <div>
-                <button className="btn btn-primary" onClick={()=>{this.selectProduct(row); this.modalInsert()}}><FontAwesomeIcon icon={faEdit}/></button>
+                <Button className="btn btn-primary" onClick={()=>{this.selectProduct(row); this.modalInsert()}}><FontAwesomeIcon icon={faEdit}/></Button>
                 {"   "}
-                <button className="btn btn-danger" onClick={()=>{this.selectProduct(row); this.setState({modalDelete: true})}}> <FontAwesomeIcon icon={faTrashAlt}/> </button>
+                <Button className="btn btn-danger" onClick={()=>{this.selectProduct(row); this.setState({modalDelete: true})}}> <FontAwesomeIcon icon={faTrashAlt}/> </Button>
             </div>
           )
         }
@@ -140,35 +139,38 @@ class Products extends Component {
         const {form}=this.state;
         return (
             <div>
-                <div className="table-responsive">
-                    <h2>Products</h2>
-                    <Col sm={8}>
-                        <Button variant="primary" className={`${styles.marginRight} ${styles.primaryBtn}`} 
-                        onClick={()=>{this.setState({form: null, modalType: 'add'}); this.modalInsert()}}>
-                            <FontAwesomeIcon icon={faPlus} className={styles.plusIcon} />{" "}
-                            Add
-                        </Button>
+                <Container>
+                    <Row className="justify-content-md-center">
+                        <div className="table-responsive">
+                            <h2>Products</h2>
+                            <Col sm={12}>
+                                <Button variant="primary" className={`${styles.marginRight} ${styles.primaryBtn}`} 
+                                onClick={()=>{this.setState({form: null, modalType: 'add'}); this.modalInsert()}} style={{float: 'right'}}>
+                                    <FontAwesomeIcon icon={faPlus} className={styles.plusIcon} />{" "}
+                                    Create Product
+                                </Button>
 
-                        <div className={styles.displayFlex}></div>
-                    </Col>
-                    <DataTable 
-                        columns={this.columns} 
-                        data={this.state.data} 
-                        pagination
-                        paginationComponentOptions={paginationOptions}
-                        fixedHeader
-                        fixedHeaderScrollHeight="400px"
-                        selectableRows
-                    />
-                </div>
-
+                                <div className={styles.displayFlex}></div>
+                            </Col>
+                            <DataTable 
+                                columns={this.columns} 
+                                data={this.state.data} 
+                                pagination
+                                paginationComponentOptions={paginationOptions}
+                                fixedHeader
+                                fixedHeaderScrollHeight="400px"
+                                selectableRows
+                            />
+                        </div>
+                    </Row>
+                </Container>
                 <Modal isOpen={this.state.modalInsert}>
                     <ModalHeader style={{display: 'block'}}>
                     <span style={{float: 'right'}} onClick={()=>this.modalInsert()}>x</span>
                     </ModalHeader>
                     <ModalBody>
                     <div className="form-group">
-                        <label htmlFor="id">ID</label>
+                        <label htmlFor="id">N°</label>
                         <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: ''}/>
                         <br />
                         <label htmlFor="name">Name</label>
@@ -177,8 +179,8 @@ class Products extends Component {
                         <label htmlFor="category">Category</label>
                         <input className="form-control" type="text" name="category" id="category" onChange={this.handleChange} value={form?form.category:''}/>
                         <br />
-                        <label htmlFor="name">Price</label>
-                        <input className="form-control" type="number" name="price" id="price" min="0" value="0" step="0.01" onChange={this.handleChange} value={form?form.price: ''}/>
+                        <label htmlFor="price">Price</label>
+                        <input className="form-control" type="number" name="price" id="price" min="0" step="0.01" onChange={this.handleChange} value={form?form.price: ''}/>
                         <br />                
                         <label htmlFor="status">Status</label>
                         <input className="form-control" type="text" name="status" id="status" onChange={this.handleChange} value={form?form.status:''}/>
@@ -206,7 +208,6 @@ class Products extends Component {
                     <button className="btn btn-secundary" onClick={()=>this.setState({modalDelete: false})}>No</button>
                     </ModalFooter>
                 </Modal>
-
             </div>
         );
     }
