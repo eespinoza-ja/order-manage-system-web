@@ -207,47 +207,63 @@ class Order extends Component {
                         </Card.Body>
                     </Card>
                 </Row>
-                <Row className="justify-content-md-center">
-                    <Col sm="11">
-                        <Form.Label column style={{float: 'right'}}><b>Subtotal</b></Form.Label>
-                    </Col>
-                    <Col sm="1">
-                        <Form.Label column htmlFor="subtotal" id="subtotal">$ {form.subtotal}</Form.Label>
-                    </Col>
-                    <Col sm="11">
-                        <Form.Label column style={{float: 'right'}}><b>Taxes</b></Form.Label>
-                    </Col>
-                    <Col sm="1"></Col>
-                    <Col sm="11">
-                        <Form.Label column="sm" style={{float: 'right'}}><b>Total City Tax</b></Form.Label>
-                    </Col>                        
-                    <Col sm="1">
-                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.city_tax}</Form.Label>
-                    </Col>
-                    <Col sm="11">
-                        <Form.Label column="sm" style={{float: 'right'}}><b>Total County Tax</b></Form.Label>
-                    </Col>
-                    <Col sm="1">
-                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.county_tax}</Form.Label>
-                    </Col>
-                    <Col sm="11">
-                        <Form.Label column="sm" style={{float: 'right'}}><b>Total State Tax</b></Form.Label>
-                    </Col>
-                    <Col sm="1">
-                        <Form.Label htmlFor="state_tax" id="state_tax">$ {form.state_tax}</Form.Label>
-                    </Col>            
-                    <Col sm="11">
-                        <Form.Label column="sm" style={{float: 'right'}}><b>Total Federal Tax</b></Form.Label>
-                    </Col>
-                    <Col sm="1">
-                        <Form.Label htmlFor="federal_tax" id="federal_tax">$ {form.federal_tax}</Form.Label>
-                    </Col>           
-                    <Col sm="11">
-                        <Form.Label column style={{float: 'right'}}><b>Total</b></Form.Label>
-                    </Col>
-                    <Col sm="1">
-                        <Form.Label column htmlFor="total" id="total">$ {form.total}</Form.Label>
-                    </Col>
+                <Row>
+                    <Card sm={6}>
+                        <Row className="justify-content-md-center">
+                            <Col sm="11">
+                                <Form.Label column style={{float: 'right'}}><b>Subtotal</b></Form.Label>
+                            </Col>
+                            <Col sm="1">
+                                <Form.Label column htmlFor="subtotal" id="subtotal">$ {form.subtotal}</Form.Label>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-md-center">
+                            <Col sm="11">
+                                <Form.Label column style={{float: 'right'}}><b>Taxes</b></Form.Label>
+                            </Col>
+                            <Col sm="1"></Col>
+                        </Row>
+                        <Row className="justify-content-md-center">                     
+                            <Col sm="11">
+                                <Form.Label column="sm" style={{float: 'right'}}><b>Total City Tax</b></Form.Label>
+                            </Col>
+                            <Col sm="1">
+                                <Form.Label htmlFor="city_tax" id="city_tax">$ {form.city_tax}</Form.Label>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-md-center">
+                            <Col sm="11">
+                                <Form.Label column="sm" style={{float: 'right'}}><b>Total County Tax</b></Form.Label>
+                            </Col>
+                            <Col sm="1">
+                                <Form.Label htmlFor="city_tax" id="city_tax">$ {form.county_tax}</Form.Label>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-md-center">
+                            <Col sm="11">
+                                <Form.Label column="sm" style={{float: 'right'}}><b>Total State Tax</b></Form.Label>
+                            </Col>
+                            <Col sm="1">
+                                <Form.Label htmlFor="state_tax" id="state_tax">$ {form.state_tax}</Form.Label>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-md-center">          
+                            <Col sm="11">
+                                <Form.Label column="sm" style={{float: 'right'}}><b>Total Federal Tax</b></Form.Label>
+                            </Col>
+                            <Col sm="1">
+                                <Form.Label htmlFor="federal_tax" id="federal_tax">$ {form.federal_tax}</Form.Label>
+                            </Col>
+                        </Row>
+                        <Row className="justify-content-md-center">           
+                            <Col sm="11">
+                                <Form.Label column style={{float: 'right'}}><b>Total</b></Form.Label>
+                            </Col>
+                            <Col sm="1">
+                                <Form.Label column htmlFor="total" id="total">$ {form.total}</Form.Label>
+                            </Col>
+                        </Row>
+                    </Card>
                 </Row>
                 <br/>
                 <Row className="justify-content-md-center">
