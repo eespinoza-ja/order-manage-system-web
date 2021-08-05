@@ -143,7 +143,9 @@ class Order extends Component {
     }
     
     componentDidMount() {
-        this.setOrder(this.props.location.state.data);
+        if (this.props.location.state != undefined){
+            this.setOrder(this.props.location.state.data);
+        }
     }
 
     render(){
@@ -210,31 +212,31 @@ class Order extends Component {
                         <Card.Body>
                             <Form>
                                 <Form.Group as={Row} className="">
-                                    <Form.Label htmlFor="subtotal" column sm="2"><b>Subtotal</b></Form.Label>
+                                    <Form.Label htmlFor="subtotal" column="lg" sm="2"><b>Subtotal</b></Form.Label>
                                     <Col sm="10">
-                                        <span>${" "}</span> <Form.Label htmlFor="subtotal" id="subtotal">{form.subtotal}</Form.Label>
+                                        <Form.Label column="lg" htmlFor="subtotal" id="subtotal">$ {form.subtotal}</Form.Label>
                                     </Col>
-                                    <Form.Label column sm="2"><b>Taxes</b></Form.Label><Col sm="10"></Col>
+                                    <Form.Label sm="2" column="lg"><b>Taxes</b></Form.Label><Col sm="10"></Col>
                                     <br />
                                     <Form.Label column sm="2"><b>Total City Tax</b></Form.Label>
                                     <Col sm="10">
-                                        <span>${" "}</span> <Form.Label htmlFor="city_tax" id="city_tax">{form.city_tax}</Form.Label>
+                                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.city_tax}</Form.Label>
                                     </Col>
                                     <Form.Label column sm="2"><b>Total County Tax</b></Form.Label>
                                     <Col sm="10">
-                                        <span>${" "}</span> <Form.Label htmlFor="city_tax" id="city_tax">{form.county_tax}</Form.Label>
+                                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.county_tax}</Form.Label>
                                     </Col>
                                     <Form.Label column sm="2"><b>Total State Tax</b></Form.Label>
                                     <Col sm="10">
-                                        <span>${" "}</span> <Form.Label htmlFor="state_tax" id="state_tax">{form.state_tax}</Form.Label>
+                                        <Form.Label htmlFor="state_tax" id="state_tax">{form.state_tax}</Form.Label>
                                     </Col>            
                                     <Form.Label column sm="2"><b>Total Federal Tax</b></Form.Label>
                                     <Col sm="10">
-                                        <span>${" "}</span> <Form.Label htmlFor="federal_tax" id="federal_tax">{form.federal_tax}</Form.Label>
+                                        <Form.Label htmlFor="federal_tax" id="federal_tax">$ {form.federal_tax}</Form.Label>
                                     </Col>           
-                                    <Form.Label column sm="2"><b>Total</b></Form.Label>
+                                    <Form.Label column="lg" sm="2"><b>Total</b></Form.Label>
                                     <Col sm="10">
-                                        <span>${" "}</span> <Form.Label htmlFor="total" id="total">{form.total}</Form.Label>
+                                       <Form.Label column="lg" htmlFor="total" id="total">$ {form.total}</Form.Label>
                                     </Col>
                                 </Form.Group>
                             </Form>
