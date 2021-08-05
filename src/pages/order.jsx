@@ -143,7 +143,7 @@ class Order extends Component {
     }
     
     componentDidMount() {
-        if (this.props.location.state != undefined){
+        if (this.props.location.state !== undefined){
             this.setOrder(this.props.location.state.data);
         }
     }
@@ -207,51 +207,75 @@ class Order extends Component {
                         </Card.Body>
                     </Card>
                 </Row>
-                <Row sm={9}>
-                    <Card>
-                        <Card.Body>
-                            <Form>
-                                <Form.Group as={Row} className="">
-                                    <Form.Label htmlFor="subtotal" column="lg" sm="2"><b>Subtotal</b></Form.Label>
-                                    <Col sm="10">
-                                        <Form.Label column="lg" htmlFor="subtotal" id="subtotal">$ {form.subtotal}</Form.Label>
-                                    </Col>
-                                    <Form.Label sm="2" column="lg"><b>Taxes</b></Form.Label><Col sm="10"></Col>
-                                    <br />
-                                    <Form.Label column sm="2"><b>Total City Tax</b></Form.Label>
-                                    <Col sm="10">
-                                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.city_tax}</Form.Label>
-                                    </Col>
-                                    <Form.Label column sm="2"><b>Total County Tax</b></Form.Label>
-                                    <Col sm="10">
-                                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.county_tax}</Form.Label>
-                                    </Col>
-                                    <Form.Label column sm="2"><b>Total State Tax</b></Form.Label>
-                                    <Col sm="10">
-                                        <Form.Label htmlFor="state_tax" id="state_tax">{form.state_tax}</Form.Label>
-                                    </Col>            
-                                    <Form.Label column sm="2"><b>Total Federal Tax</b></Form.Label>
-                                    <Col sm="10">
-                                        <Form.Label htmlFor="federal_tax" id="federal_tax">$ {form.federal_tax}</Form.Label>
-                                    </Col>           
-                                    <Form.Label column="lg" sm="2"><b>Total</b></Form.Label>
-                                    <Col sm="10">
-                                       <Form.Label column="lg" htmlFor="total" id="total">$ {form.total}</Form.Label>
-                                    </Col>
-                                </Form.Group>
-                            </Form>
-                        </Card.Body>
-                    </Card>
+                <Row className="justify-content-md-center">
+                    <Col sm="11">
+                        <Form.Label column style={{float: 'right'}}><b>Subtotal</b></Form.Label>
+                    </Col>
+                    <Col sm="1">
+                        <Form.Label column htmlFor="subtotal" id="subtotal">$ {form.subtotal}</Form.Label>
+                    </Col>
+                    <Col sm="11">
+                        <Form.Label column style={{float: 'right'}}><b>Taxes</b></Form.Label>
+                    </Col>
+                    <Col sm="1"></Col>
+                    <Col sm="11">
+                        <Form.Label column="sm" style={{float: 'right'}}><b>Total City Tax</b></Form.Label>
+                    </Col>                        
+                    <Col sm="1">
+                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.city_tax}</Form.Label>
+                    </Col>
+                    <Col sm="11">
+                        <Form.Label column="sm" style={{float: 'right'}}><b>Total County Tax</b></Form.Label>
+                    </Col>
+                    <Col sm="1">
+                        <Form.Label htmlFor="city_tax" id="city_tax">$ {form.county_tax}</Form.Label>
+                    </Col>
+                    <Col sm="11">
+                        <Form.Label column="sm" style={{float: 'right'}}><b>Total State Tax</b></Form.Label>
+                    </Col>
+                    <Col sm="1">
+                        <Form.Label htmlFor="state_tax" id="state_tax">$ {form.state_tax}</Form.Label>
+                    </Col>            
+                    <Col sm="11">
+                        <Form.Label column="sm" style={{float: 'right'}}><b>Total Federal Tax</b></Form.Label>
+                    </Col>
+                    <Col sm="1">
+                        <Form.Label htmlFor="federal_tax" id="federal_tax">$ {form.federal_tax}</Form.Label>
+                    </Col>           
+                    <Col sm="11">
+                        <Form.Label column style={{float: 'right'}}><b>Total</b></Form.Label>
+                    </Col>
+                    <Col sm="1">
+                        <Form.Label column htmlFor="total" id="total">$ {form.total}</Form.Label>
+                    </Col>
                 </Row>
                 <br/>
                 <Row className="justify-content-md-center">
-                    <Col >
+                    <Col>
                         <Button className="btn btn-success" style={{float: 'right'}}>Complete Order</Button>
                     </Col>
                     <Col xs lg="2">
                         <Link to="Orders" className="btn btn-danger" style={{float: 'right'}}>Reject order</Link>
                     </Col>
                 </Row>
+                <div className="border d-flex align-items-left justify-content-left">
+                <Form.Check type="checkbox" id="autoSizingCheck2" label="Remember me" />
+                </div>
+                <Form>
+                <Row className="align-items-center">
+                    <Col sm={3} className="my-1">
+                    <Form.Label htmlFor="inlineFormInputName" visuallyHidden>
+                        Name
+                    </Form.Label>
+                    </Col>
+                    <Col xs="auto" className="my-1">
+                    <Form.Check type="checkbox" id="autoSizingCheck2" label="Remember me" />
+                    </Col>
+                    <Col xs="auto" className="my-1">
+                    <Button type="submit">Submit</Button>
+                    </Col>
+                </Row>
+                </Form>
             </Container>
         )
     }
