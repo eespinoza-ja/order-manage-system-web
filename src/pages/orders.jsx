@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { Button, Col, Row, Container } from "react-bootstrap/";
+import { Col, Row, Container } from "react-bootstrap/";
 import { Link } from "react-router-dom";
 import DataTable from 'react-data-table-component';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,7 +49,9 @@ class Orders extends Component {
           button: true,
           cell: (row) => (
             <div>
-                <Button className="btn btn-primary" onClick={()=>{this.selectOrder(row); this.modalInsert()}}><FontAwesomeIcon icon={faEdit}/></Button>
+                <Link to={{ pathname: 'Order', state: {data:row}}} className="btn btn-primary"> 
+                    <FontAwesomeIcon className={styles.plusIcon} icon={faEdit}/>
+                </Link>
             </div>
           )
         }
@@ -102,7 +104,9 @@ class Orders extends Component {
                     <div className="table-responsive">
                         <h2>Orders</h2>
                         <Col sm={12}>
-                            <Link to="Order" className="btn btn-primary" style={{float: 'right'}}> <FontAwesomeIcon icon={faPlus} className={styles.plusIcon} />{" "} Create Order</Link>
+                            <Link to="Order" className="btn btn-primary" style={{float: 'right'}}> 
+                                <FontAwesomeIcon icon={faPlus} className={styles.plusIcon} />{" "} Create Order
+                            </Link>
                             <div className={styles.displayFlex}></div>
                         </Col>
                         <DataTable 

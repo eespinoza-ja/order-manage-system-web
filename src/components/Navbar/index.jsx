@@ -12,13 +12,13 @@ return (
 	<Nav>
 		<Bars />
 		<NavMenu>
-		<NavLink to='#' activeStyle>
+		<NavLink to='#'>
 			Blaze
 		</NavLink>
-		<NavLink to='/Orders' activeStyle>
+		<NavLink to='/Orders'>
 			Orders
 		</NavLink>
-		<NavLink to='/Products' activeStyle>
+		<NavLink to='/Products'>
             Products
 		</NavLink>
 		</NavMenu>
